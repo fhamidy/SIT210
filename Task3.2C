@@ -11,7 +11,7 @@ void loop() {
    if (dark >= LIGHT_LEVEL_THRESHOLD) { 
        Particle.publish("light-level-changed", "dark"); 
        
-       // Once dark is triggered, the threshold is temporarily shifted so that the state will not float between dark and bright when it's on the threshold. This is how street lights work.
+       // Once dark is triggered, the threshold is temporarily shifted so we dont have the state between dark and bright 
        while (analogRead(LIGHT_PIN) > LIGHT_LEVEL_THRESHOLD - THRESHOLD_SENSITIVITY); 
    } else { 
        Particle.publish("light-level-changed", "bright"); 
