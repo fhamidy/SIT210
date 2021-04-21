@@ -25,17 +25,25 @@ void handler(const char *event, const char *data){
     else if (strcmp(data,"pat")==0)
     {
         digitalWrite(LED,HIGH);
-        delay(200);
+        delay(100);
         digitalWrite(LED,LOW);
-        delay(200);
+        delay(100);
         digitalWrite(LED,HIGH);
-        delay(200);
+        delay(100);
         digitalWrite(LED,LOW);
-        delay(200);
+        delay(100);
         digitalWrite(LED,HIGH);
-        delay(200);
+        delay(100);
         digitalWrite(LED,LOW);
-        delay(200);
+        delay(100);
+        digitalWrite(LED,HIGH);
+        delay(100);
+        digitalWrite(LED,LOW);
+        delay(100);
+        digitalWrite(LED,HIGH);
+        delay(100);
+        digitalWrite(LED,LOW);
+        delay(100);
     }
 }
 
