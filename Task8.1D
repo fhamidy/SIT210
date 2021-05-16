@@ -5,8 +5,8 @@ from time import sleep
 GPIO.setmode(GPIO.BCM)
 sensor = DistanceSensor(trigger = 18, echo=24) #read distance sensor
 GPIO.setup(21, GPIO.OUT) # initialise led output
-p = GPIO.PWM(21,50)
-p.start(0)
+ana = GPIO.PWM(21,50) # initialise analog output on led with frequency of 50
+ana.start(0) # set initial value as 0
 
 try:
     while True:
@@ -14,12 +14,12 @@ try:
         outputData = sensor.distance # read the data
         outputData = round(sensor.distance, 1) # gives a rounded value
         outputDataCM = outputData*100 # convert output to cm value
-        p.ChangeDutyCycle(100-outputDataCM)
+        ana.ChangeDutyCycle(100-outputDataCM)
         print(outputData)
 except KeyboardInterrupt:
     pass
 
-p.stop()
+ana.stop()
 GPIO.cleanup()
 
 
